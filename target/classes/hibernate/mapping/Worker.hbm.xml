@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="MuseumHibernate.com.softserve.training.mysql.ex.CRUDS.Worker"
+		table="Worker" lazy="false">
+		<meta attribute="class-description">
+			This class contains the worker detail.
+		</meta>
+		<id name="cod_worker" type="int" column="Cod_worker">
+			<generator class="native" />
+		</id>
+		<property name="pib" type="string" column="PIB" />
+		<property name="job" type="string" column="Job" />
+		<property name="salary" type="int" column="salary" />
+		<set name="halls" table="Hall" inverse="true" lazy="false">
+			<key>
+				<column name="Cod_worker" not-null="true" />
+			</key>
+			<one-to-many
+				class="MuseumHibernate.com.softserve.training.mysql.ex.CRUDS.Hall" />
+		</set>
+		<set name="excursions" table="Manager_exc" lazy="false">
+			<key>
+				<column name="Cod_worker" not-null="true" />
+			</key>
+			<many-to-many
+				entity-name="MuseumHibernate.com.softserve.training.mysql.ex.CRUDS.Excursion">
+				<column name="Cod_exc" not-null="true" />
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

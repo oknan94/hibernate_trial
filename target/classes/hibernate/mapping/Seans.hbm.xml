@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="MuseumHibernate.com.softserve.training.mysql.ex.CRUDS.Seans"
+		table="Seans" lazy="false">
+		<meta attribute="class-description">
+			This class contains the seans detail.
+		</meta>
+		<id name="cod_seans" type="int" column="Cod_seans" >
+			<generator class="native" />
+		</id>
+		<property name="cod_exc" type="int" column="Cod_exc" />
+		<property name="day_of" type="string" column="Day_of" />		
+		<property name="time_beg" type="java.sql.Time" column="Time_beg" />
+		<property name="time_end" type="java.sql.Time" column="Time_end" />
+	</class>
+</hibernate-mapping>

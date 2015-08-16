@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="MuseumHibernate.com.softserve.training.mysql.ex.CRUDS.Excursion"
+		table="Excursion" lazy="false">
+		<meta attribute="class-description">
+			This class contains the excursion detail.
+		</meta>
+		<id name="cod_exc" type="int" column="Cod_exc">
+			<generator class="native" />
+		</id>
+		<property name="name" type="string" column="Name" />
+		<property name="expir_date" type="java.sql.Date" column="Expir_date" />
+		<set name="seanses" table="Seans" lazy="false">
+			<key>
+				<column name="Cod_exc" not-null="true" />
+			</key>
+			<one-to-many
+				class="MuseumHibernate.com.softserve.training.mysql.ex.CRUDS.Seans" />
+		</set>
+		<set name="halls" table="exc_hall" lazy="false">
+			<key>
+				<column name="Cod_exc" not-null="true" />
+			</key>
+			<many-to-many
+				entity-name="MuseumHibernate.com.softserve.training.mysql.ex.CRUDS.Hall">
+				<column name="Cod_hall" not-null="true" />
+			</many-to-many>
+		</set>
+		<set name="workers" table="Manager_exc" lazy="false">
+			<key>
+				<column name="Cod_exc" not-null="true" />
+			</key>
+			<many-to-many
+				entity-name="MuseumHibernate.com.softserve.training.mysql.ex.CRUDS.Worker">
+				<column name="Cod_worker" not-null="true" />
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

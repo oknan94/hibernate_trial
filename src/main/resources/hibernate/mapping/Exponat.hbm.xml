@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="MuseumHibernate.com.softserve.training.mysql.ex.CRUDS.Exponat"
+		table="Exponat" lazy="false">
+		<meta attribute="class-description">
+			This class contains the exponat detail.
+		</meta>
+		<id name="cod_exp" type="int" column="Cod_exp">
+			<generator class="native" />
+		</id>
+		<property name="name" type="string" column="Name" />
+		<property name="date_of_get" type="java.sql.Date" column="Date_of_get" />
+		<property name="author" type="string" column="Author" />
+		<property name="material" type="string" column="Material" />
+		<property name="technic" type="string" column="Technic" />
+
+	</class>
+</hibernate-mapping>
